@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+    app:
+        image: ahmed858/warehouses-manager
+        container_name: warehouses-manager-con
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "8000:80"
+        env_file:
+            - .docker.env
+        volumes:
+            - .:/var/www/html
+            - ./public:/var/www/html/public
+
+# MySQL service definition (optional, if you want to run MySQL in a separate container)
+# Uncomment and modify if needed
+#  mysql:
+#    image: mysql:5.7
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      MYSQL_DATABASE: ${DB_DATABASE}
+#      MYSQL_USER: ${DB_USERNAME}
+#      MYSQL_PASSWORD: ${DB_PASSWORD}
+#      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+#    volumes:
+#      - db_data:/var/lib/mysql
+
+# Volumes definition (optional, for MySQL container)
+# Uncomment if you are using the MySQL service defined above
+# volumes:
+#   db_data:

@@ -16,6 +16,7 @@ return new class extends Migration
         Schema::create('items', function (Blueprint $table) {
             $table->id(); // Primary key
             $table->string('name');
+            $table->foreignId('warehouse_id')->constrained()->onDelete('cascade');
             $table->string('description')->nullable();
             $table->integer('quantity'); // Integer column for quantity
             $table->timestamps(); // Created_at and updated_at timestamps

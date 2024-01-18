@@ -1,16 +1,16 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'end', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
 
 @php
 switch ($align) {
-    case 'left':
-        $alignmentClasses = 'origin-top-left left-0';
+    case 'start':
+        $alignmentClasses = 'origin-top start-0';
         break;
     case 'top':
         $alignmentClasses = 'origin-top';
         break;
-    case 'right':
+    case 'end':
     default:
-        $alignmentClasses = 'origin-top-right right-0';
+        $alignmentClasses = 'origin-top  end-0';
         break;
 }
 
@@ -36,7 +36,7 @@ switch ($width) {
             class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
             style="display: none;"
             @click="open = false">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+        <div class="rounded-md ring-1 ring-black ring-opacity-5  {{ $contentClasses }}">
             {{ $content }}
         </div>
     </div>

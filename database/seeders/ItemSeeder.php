@@ -18,16 +18,19 @@ class ItemSeeder extends Seeder
     {
         // Fetch all warehouses
         $warehouses = Warehouse::all();
-
+        $counter = 1;
         foreach ($warehouses as $warehouse) {
             // Generate 2-3 items for each warehouse
+
             for ($i = 0; $i < rand(2, 3); $i++) {
                 Item::create([
-                    'name' => 'Item ' . ($i + 1) . ' for ' . $warehouse->name,
-                    'description' => 'Description for item ' . ($i + 1),
+                    'name' => 'Item ' . $counter ,
+                    'description' => 'Description for item ' . $counter,
                     'quantity' => rand(10, 100), // Random quantity for example
+                    'warehouse_id' => $warehouse->id,
                     // Add other necessary fields as required
                 ]);
+                $counter += 1;
             }
         }
     }

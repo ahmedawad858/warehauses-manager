@@ -14,6 +14,7 @@ class Transaction extends Model
         'warehouse_id',
         'item_id',
         'status',
+        'quantity',
         'transaction_date',
     ];
 

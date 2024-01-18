@@ -12,6 +12,7 @@ class Item extends Model
 
     protected $fillable = [
         'name',
+        'warehouse_id',
         'description',
         'quantity',
     ];
@@ -21,4 +22,8 @@ class Item extends Model
     // public function transactions() {
     //     return $this->hasMany(Transaction::class);
     // }
+
+    public function warehouse() {
+        return $this->belongsTo(Warehouse::class);
+    }
 }
