@@ -41,7 +41,7 @@
 ## Start Apache service
 #CMD ["apache2-foreground"]
 
-FROM richarvey/nginx-php-fpm:1.9.1
+FROM richarvey/nginx-php-fpm:latest
 
 COPY . .
 
