@@ -3,8 +3,8 @@ echo "Running composer"
 composer global require hirak/prestissimo
 composer install --no-dev --working-dir=/var/www/html
 
-echo "installing migrations..."
-php artisan migrate:install
+#echo "installing migrations..."
+#php artisan migrate:install
 
 echo "Caching config..."
 php artisan config:cache
