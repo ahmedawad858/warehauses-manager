@@ -36,7 +36,7 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') == 'production') {
             $url->forceScheme('https');
         }
-//        if (User::count() === 0) {
+//               if (User::count() === 0) {
 //            $seeder = new UserSeeder();
 //            $seeder->run();
 //        }

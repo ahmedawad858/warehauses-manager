@@ -21,5 +21,11 @@ php artisan migrate --force
 echo "Running Seeder..."
 php artisan db:seed --force
 
+#echo "Running seeders..."
+#php artisan db:seed
+
+echo "Running vite..."
+npm install
+npm run build
 
 
