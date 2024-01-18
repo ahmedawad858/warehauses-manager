@@ -23,7 +23,15 @@ class TransactionSeeder extends Seeder
         foreach ($employees as $employee) {
             // Generate 2-3 items for each warehouse
                 $counter = 0;
-                foreach (Item::orderBy(DB::raw('RAND()'))->take(6)->get() as $item) {
+                $items = null;
+
+                if (env('APP_ENV') == 'production') {
+                    $items = Item::orderBy(DB::raw('RANDOM()'))->take(6)->get();
+                }else{
+                    $items = Item::orderBy(DB::raw('RAND()'))->take(6)->get();
+
+                }
+                foreach ($items as $item) {
                     $status = "pending";
 
                     switch ($counter % 3) {
