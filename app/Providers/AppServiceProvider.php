@@ -36,23 +36,23 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') == 'production') {
             $url->forceScheme('https');
         }
-        if (User::count() === 0) {
-            $seeder = new UserSeeder();
-            $seeder->run();
-        }
-        if (Warehouse::count() === 0) {
-            $seeder = new WarehouseSeeder();
-            $seeder->run();
-        }
-
-        if (Item::count() === 0) {
-            $seeder = new ItemSeeder();
-            $seeder->run();
-        }
-        if (Transaction::count() === 0) {
-            $seeder = new TransactionSeeder();
-            $seeder->run();
-        }
+//        if (User::count() === 0) {
+//            $seeder = new UserSeeder();
+//            $seeder->run();
+//        }
+//        if (Warehouse::count() === 0) {
+//            $seeder = new WarehouseSeeder();
+//            $seeder->run();
+//        }
+//
+//        if (Item::count() === 0) {
+//            $seeder = new ItemSeeder();
+//            $seeder->run();
+//        }
+//        if (Transaction::count() === 0) {
+//            $seeder = new TransactionSeeder();
+//            $seeder->run();
+//        }
 
     }
 }
