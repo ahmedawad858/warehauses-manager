@@ -70,9 +70,6 @@ Route::middleware(['auth', 'headOfDepartment'])->group(function () {
 });
 
 
-// Public access
-Route::get('/items', [ItemsController::class, 'index'])->middleware(['auth'])->name('items.index');
-Route::get('/items/{item}', [ItemsController::class, 'show'])->middleware(['auth'])->name('items.show');
 
 // Protected routes for head of the department
 Route::middleware(['auth', 'headOfDepartment'])->group(function () {
@@ -82,6 +79,11 @@ Route::middleware(['auth', 'headOfDepartment'])->group(function () {
     Route::put('/items/{item}', [ItemsController::class, 'update'])->name('items.update');
     Route::delete('/items/{item}', [ItemsController::class, 'destroy'])->name('items.destroy');
 });
+
+// Public access
+Route::get('/items', [ItemsController::class, 'index'])->middleware(['auth'])->name('items.index');
+Route::get('/items/{item}', [ItemsController::class, 'show'])->middleware(['auth'])->name('items.show');
+
 
 
 Route::middleware(['auth'])->group(function () {
