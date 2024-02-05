@@ -53,8 +53,14 @@
                     <div
                         class="bg-white flex flex-col dark:bg-gray-800 p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow dark:shadow-gray-700 duration-300 ease-in-out cursor-pointer min-h-full"
                         onclick="location.href='{{ route('items.show', $item) }}';">
-                        <h2 class="text-xl font-semibold dark:text-white">{{ $item->name }}</h2>
-                        <p class="dark:text-gray-300 mb-auto">{{ $item->description }}</p>
+                        @if ($item->image)
+                            <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" class="aspect-square">
+                        @else
+                            <img src={{url("assets/no-image1.png")}} alt="" class="aspect-square dark:opacity-25">
+                        @endif
+
+                        <h2 class="text-xl mt-3 font-semibold dark:text-white">{{ $item->name }}</h2>
+                        <p class="dark:text-gray-300  mb-auto">{{ $item->description }}</p>
 
                         <div>
                             <!-- Conditionally show Edit and Delete buttons for head users -->

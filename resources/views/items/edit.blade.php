@@ -3,7 +3,7 @@
         <div class="max-w-md mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md">
             <h1 class="text-2xl font-semibold dark:text-white mb-4">{{ __('items.edit_item') }}</h1>
 
-            <form action="{{ route('items.update', $item) }}" method="POST">
+            <form action="{{ route('items.update', $item) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
 
@@ -44,7 +44,11 @@
                         @endforeach
                     </select>
                 </div>
-
+                <!-- Image Input -->
+                <div class="mb-4">
+                    <label for="image" class="block text-sm font-medium text-gray-900 dark:text-gray-300">{{ __('items.image') }}</label>
+                    <input type="file" id="image" name="image" class="mt-1 block w-full px-3 py-2 bg-gray-50 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+                </div>
                 <!-- Submit Button -->
                 <button type="submit"
                         class="w-full px-4 py-2 bg-blue-500 text-white font-semibold rounded-md hover:bg-blue-600 transition duration-300 ease-in-out dark:bg-blue-400 dark:hover:bg-blue-500">{{ __('items.save_changes') }}</button>

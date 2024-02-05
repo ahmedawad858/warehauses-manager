@@ -18,6 +18,7 @@ return [
     'amount' => 'Quantity',
     'warehouse' => 'Warehouse',
     'add' => 'Add',
+    'image' => "Image",
 
     'edit_item' => 'Edit Item',
     'quantity' => 'Quantity',

@@ -17,6 +17,7 @@ return [
     'amount' => 'الكمية',
     'warehouse' => 'المخزن',
     'add' => 'اضافة',
+    'image' => "الصورة",
 
     'edit_item' => 'تعديل المادة',
     'quantity' => 'الكمية',

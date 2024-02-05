@@ -15,6 +15,7 @@ class Item extends Model
         'warehouse_id',
         'description',
         'quantity',
+         'image',
     ];
 
     // Define relationships, if any

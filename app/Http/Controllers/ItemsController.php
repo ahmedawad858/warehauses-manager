@@ -6,6 +6,7 @@ use App\Models\Item;
 use App\Models\Transaction;
 use App\Models\Warehouse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ItemsController extends Controller
 {
@@ -43,9 +44,13 @@ class ItemsController extends Controller
             'name' => 'required|string|max:255',
             'warehouse_id' => 'required|exists:warehouses,id',
             'description' => 'nullable|string',
-            'quantity' => 'required|integer|min:0'
-        ]);
+            'quantity' => 'required|integer|min:0',
+            'image' => 'nullable|image|max:2048', // Validate image
 
+        ]);
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $request->file('image')->store('images', 'public');
+        }
         Item::create($validatedData);
 
         return redirect()->route('items.index')->with('success', 'Item created successfully.');
@@ -66,9 +71,17 @@ class ItemsController extends Controller
             'name' => 'required|string|max:255',
             'warehouse_id' => 'required|exists:warehouses,id',
             'description' => 'nullable|string',
-            'quantity' => 'required|integer|min:0'
-        ]);
+            'quantity' => 'required|integer|min:0',
+            'image' => 'nullable|image|max:2048', // Validate image
 
+        ]);
+        if ($request->hasFile('image')) {
+            $validatedData['image'] = $request->file('image')->store('images', 'public');
+            // Delete old image if necessary
+            if ($item->image) {
+                Storage::delete($item->image);
+            }
+        }
         $item->update($validatedData);
 
         return redirect()->route('items.index')->with('success', 'Item updated successfully.');

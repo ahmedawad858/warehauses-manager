@@ -21,8 +21,9 @@ php artisan migrate --force
 echo "Running Seeder..."
 php artisan db:seed --force
 
-#echo "Running seeders..."
-#php artisan db:seed
+echo "Running storage..."
+php artisan storage:link
+
 
 echo "Running vite..."
 npm install

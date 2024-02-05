@@ -1,7 +1,11 @@
 <x-app-layout>
     <div class="container mx-auto px-4 py-6">
         <div class="max-w-md mx-auto bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md sm:mt-20">
-            <h2 class="text-2xl font-semibold dark:text-white mb-4">{{ $item->name }}</h2>
+            @if ($item->image)
+                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}">
+            @endif
+
+            <h2 class="text-2xl mt-3 font-semibold dark:text-white mb-4">{{ $item->name }}</h2>
             <p class="text-gray-600 dark:text-gray-400 mb-3">{{ $item->description }}</p>
             <p class="text-gray-600 dark:text-gray-400 mb-3">{{ __('items.warehouse') }}: {{ $item->warehouse->name }}</p>
             <p class="text-gray-600 dark:text-gray-400 mb-3">{{ __('items.quantity') }}: {{ $item->quantity }}</p>
